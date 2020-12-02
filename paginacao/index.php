@@ -1,5 +1,6 @@
 <center>
 <?php
+/*Recebe a página atual via sessão*/
 session_start();
 require("paginas.php");
 if(!empty($_GET['pagina'])){
@@ -12,6 +13,7 @@ if(!empty($_GET['pagina'])){
 <!-- Chama a biblioteca jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+/*Estilo*/
 <style>
     .paginacao{
         position:relative;
@@ -27,6 +29,7 @@ if(!empty($_GET['pagina'])){
         font-size:20px;
     }
 </style>
+/*Requisição Ajax*/
 <center> <h1 style = "color:#483D8B;font-family:arial;top:50px;position:relative;"> CADASTRO </h1> </center>
 <script type = "text/javascript">
 jQuery(document).ready(function(){
@@ -43,18 +46,19 @@ jQuery(document).ready(function(){
         /*Recebe os dados*/
         var dados = [];
         var produtos = [];
-        var arrayTeste = [];
+        var arrayDados = [];
+        /*Adiciona os dados trazidos pela requisição ajax em um array*/
         dados.push(JSON.parse(data));
+        /*Prepara os dados trazidos para listagem em uma tabela*/
         dados.forEach((elem,index) => {  
             for(i = 0; i <= (elem.length-1); i++){
-                arrayTeste.push({'idprod':elem[i].idprod,'nome':elem[i].nome,'cor':elem[i].cor,'preco':elem[i].preco});
+                arrayDados.push({'idprod':elem[i].idprod,'nome':elem[i].nome,'cor':elem[i].cor,'preco':elem[i].preco});
             }
         });
-        console.log(arrayTeste);
         /* Salva os dados na localStorage para gerar o PDF */
         localStorage.setItem("dadosPDF",(data));
         /* Carrega os dados da tabela */
-        arrayTeste.forEach(function (elem, index) {
+        arrayDados.forEach(function (elem, index) {
                 produtos.push(`
                     <tr>
                         <td>${elem.idprod}</td>
@@ -63,12 +67,13 @@ jQuery(document).ready(function(){
                         <td>${elem.preco}</td>
                     </tr>`);
         });
+        /*Lista os produtos via jQuery*/
         jQuery(".produtos").html(produtos.join(''));
     }
 });
 });
 </script>
-
+<!-- Tabela -->
 <div class = "divProdutos">
 <table class='table table-dark tabela'>
     <thead>
@@ -82,9 +87,10 @@ jQuery(document).ready(function(){
     <tbody class = 'produtos'>
     </tbody>
 </table>
+<!-- Números da páginação -->
 <div class = "link" style = "text-align:center;position:relative;top:50px;"></div>
 </div>
-
+<!-- Estilo -->
 <style>
 .tabela{
     position:relative;
@@ -98,6 +104,7 @@ jQuery(document).ready(function(){
 
 }
 </style>
+<!-- Icones -->
 <div class = "icons">
 <img src = "pdf.png" style = "cursor:pointer;" onclick = "gerarPDF();" id = 'download-btn'/>
 <img src = "word.png" style = "cursor:pointer;"/>
@@ -105,8 +112,6 @@ jQuery(document).ready(function(){
 </div>
 <div id = "tabela">
 </div>
-
-
 <!-- Gerar PDF -->
 <script src="dist/jspdf.umd.js"></script>
 <script>if (!window.jsPDF) window.jsPDF = window.jspdf.jsPDF</script>
