@@ -13,7 +13,7 @@ if(!empty($_GET['pagina'])){
 <!-- Chama a biblioteca jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-/*Estilo*/
+<!-- Estilo -->
 <style>
     .paginacao{
         position:relative;
@@ -29,7 +29,7 @@ if(!empty($_GET['pagina'])){
         font-size:20px;
     }
 </style>
-/*Requisição Ajax*/
+<!-- Requisição Ajax-->
 <center> <h1 style = "color:#483D8B;font-family:arial;top:50px;position:relative;"> CADASTRO </h1> </center>
 <script type = "text/javascript">
 jQuery(document).ready(function(){
