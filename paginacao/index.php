@@ -110,8 +110,6 @@ jQuery(document).ready(function(){
 <img src = "word.png" style = "cursor:pointer;"/>
 <img src = "imprimir.png" onclick = "window.print()" style = "cursor:pointer;"/>
 </div>
-<div id = "tabela">
-</div>
 <!-- Gerar PDF -->
 <script src="dist/jspdf.umd.js"></script>
 <script>if (!window.jsPDF) window.jsPDF = window.jspdf.jsPDF</script>
