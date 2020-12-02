@@ -50,7 +50,7 @@ jQuery(document).ready(function(){
         /*Adiciona os dados trazidos pela requisição ajax em um array*/
         dados.push(JSON.parse(data));
         /*Prepara os dados trazidos para listagem em uma tabela*/
-        dados.forEach((elem,index) => {  
+        dados.forEach((elem) => {  
             for(i = 0; i <= (elem.length-1); i++){
                 arrayDados.push({'idprod':elem[i].idprod,'nome':elem[i].nome,'cor':elem[i].cor,'preco':elem[i].preco});
             }
