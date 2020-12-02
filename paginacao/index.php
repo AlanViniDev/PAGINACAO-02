@@ -58,7 +58,7 @@ jQuery(document).ready(function(){
         /* Salva os dados na localStorage para gerar o PDF */
         localStorage.setItem("dadosPDF",(data));
         /* Carrega os dados da tabela */
-        arrayDados.forEach(function (elem, index) {
+        arrayDados.forEach(function (elem) {
                 produtos.push(`
                     <tr>
                         <td>${elem.idprod}</td>
